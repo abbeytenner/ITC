@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="/root/assets/unitconverter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=League+Spartan:wght@100..900&family=Lexend:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  </head>
+<body>
+    <div class="mainbody">
+        <h1>Unit Converter</h1>
+        <div class="tempInputs">
+            <input type="number" id="fahrenheit" placeholder="°F Temperature" class="Finput">
+            <span> ↔ </span>
+            <input type="number" id="celsius" placeholder="°C Temperature" class="Cinput">
+        </div>
+
+        <div class="lengthInputs">
+            <input type="number" id="meters" class="MeterInput" placeholder="Meter">
+            <span> ↔ </span>
+            <input type="number" id="feet" class="FeetInput" placeholder="Feet">
+        </div>
+        <a href="/root/index.html">
+        <button class="home">Return Home</button>
+        </a>
+    </div>
+
+    <script>
+        const fahrenheitInput = document.getElementById('fahrenheit');
+        const celsiusInput = document.getElementById('celsius');
+    
+        fahrenheitInput.addEventListener('input', (e) => {
+          const value = e.target.value;
+          
+          if (value === '') {
+            celsiusInput.value = '';
+            return;
+          }
+    
+          const f = parseFloat(value);
+          if (!isNaN(f)) {
+            const c = ((f - 32) * 5) / 9;
+            celsiusInput.value = c.toFixed(1);
+          }
+        });
+    
+        celsiusInput.addEventListener('input', (e) => {
+          const value = e.target.value;
+          
+          if (value === '') {
+            fahrenheitInput.value = '';
+            return;
+          }
+    
+          const c = parseFloat(value);
+          if (!isNaN(c)) {
+            const f = (c * 9) / 5 + 32;
+            fahrenheitInput.value = f.toFixed(1);
+          }
+        });
+        const feetInput = document.getElementById('feet');
+    const metersInput = document.getElementById('meters');
+
+    const FEET_TO_METERS = 0.3048;
+    const METERS_TO_FEET = 3.28084;
+
+    feetInput.addEventListener('input', (e) => {
+      const value = e.target.value;
+      
+      if (value === '') {
+        metersInput.value = '';
+        return;
+      }
+
+      const feet = parseFloat(value);
+      if (!isNaN(feet)) {
+        const meters = feet * FEET_TO_METERS;
+        metersInput.value = meters.toFixed(3);
+      }
+    });
+
+    metersInput.addEventListener('input', (e) => {
+      const value = e.target.value;
+      
+      if (value === '') {
+        feetInput.value = '';
+        return;
+      }
+
+      const meters = parseFloat(value);
+      if (!isNaN(meters)) {
+        const feet = meters * METERS_TO_FEET;
+        feetInput.value = feet.toFixed(3);
+      }
+    });
+      </script>
+
+    <footer>© 2024, Jama Paolo H. Sariol</footer>
+</body>
+</html>

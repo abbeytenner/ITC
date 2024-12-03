@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="/root/assets/incometaxcalculator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=League+Spartan:wght@100..900&family=Lexend:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mainbody">
+        <h1>Income Tax Calculator</h1>
+        <div>
+            <label for="incomeInput">Annual Income</label>
+            <input type="number" id="incomeInput" class="incomeInput" placeholder="Input Income" oninput="calculateTax()">
+            <label for="taxOutput">Income Tax</label>
+            <input type="number" id="taxOutput" class="taxOutput" placeholder="Total Tax" readonly>
+        </div>
+       
+        <div class="home-parent">
+            <a href="/root/index.html">
+                <button class="home">Return Home</button>
+            </a>
+        </div>
+    </div>
+    <footer>© 2024, Jama Paolo H. Sariol</footer>
+
+    <script>
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('incomeInput').value);
+            let tax = 0;
+            
+            if (income > 8000000) {
+                tax = 2410000 + (income - 8000000) * 0.35;
+            } else if (income > 2000000) {
+                tax = 490000 + (income - 2000000) * 0.32;
+            } else if (income > 800000) {
+                tax = 130000 + (income - 800000) * 0.30;
+            } else if (income > 400000) {
+                tax = 30000 + (income - 400000) * 0.25;
+            } else if (income > 250000) {
+                tax = (income - 250000) * 0.20;
+            }
+
+            document.getElementById('taxOutput').value = tax ? Math.round(tax) : 0;
+        }
+    </script>
+</body>
+</html>

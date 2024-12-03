@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/root/assets/loops.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=League+Spartan:wght@100..900&family=Lexend:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mainbody">
+        <h1>Loops</h1>
+        <div>
+            <label for="numInput"><span class="accent">Input</span></label>
+            <input type="number" id="numInput" class="numInput" placeholder="Input number">
+        </div>
+        <div class="input-grid">
+            <div>
+                <label for="factorial"><span class="accent">Factorial (While)</span></label>
+                <input id="factorial" class="numInput" placeholder="Factorial equivalent" readonly>
+            </div>
+    
+            <div>
+                <label for="sum"><span class="accent">Sum (Do-While)</span></label>
+                <input id="sum" class="numInput" placeholder="Sum of Numbers" readonly>
+            </div>
+    
+            <div>
+                <label for="average"><span class="accent">Average (For)</span></label>
+                <input id="average" class="numInput" placeholder="Average of Numbers" readonly>
+            </div>
+        </div>
+        
+        <a href="/root/index.html">
+            <button class="home">Return Home</button>
+        </a>
+    </div>
+    
+
+    <script>
+    const numInput = document.getElementById('numInput');
+    const factorialOutput = document.getElementById('factorial');
+    const sumOutput = document.getElementById('sum');
+    const averageOutput = document.getElementById('average');
+
+    numInput.addEventListener('input', function() {
+        const num = parseInt(this.value);
+        
+       //factorial
+        let factorial = 1;
+        for(let i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        factorialOutput.value = factorial;
+
+      //sum
+        let sum = 0;
+        for(let i = 1; i <= num; i++) {
+            sum += i;
+        }
+        sumOutput.value = sum;
+
+       //average 
+        const average = sum / num;
+        averageOutput.value = average.toFixed(2);
+    });
+    </script>
+    
+    <footer>© 2024, Jama Paolo H. Sariol</footer>
+</body>
+</html>
