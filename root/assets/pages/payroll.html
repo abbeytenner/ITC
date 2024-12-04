@@ -3,9 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payroll</title>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/root/assets/payroll.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=League+Spartan:wght@100..900&family=Lexend:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Payroll</h1>
+    <div class="mainbody">
+        <h1>Employee Payroll</h1>
+
+
+    <div class="tableInput">
+        <label for="employeeName">Employee Name</label>
+        <input type="text" id="employeeName" placeholder="Employee Name">
+   
+        <label for="daysWorked">Days Worked</label>
+        <input type="number" id="daysWorked" placeholder="Days Worked">
+    
+        <label for="dailyRate">Daily Rate</label>
+        <input type="number" id="dailyRate" placeholder="Daily Rate">
+   
+        <label for="deduction">Deduction</label>
+        <input type="number" id="deduction" placeholder="Deduction">
+   
+        <button onclick="addEmployee()" class="addEmp">Add</button>
+</div>
+
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>Employee Name</th>
+            <th>Days Worked</th>
+            <th>Daily Rate</th>
+            <th>Gross Pay</th>
+            <th>Deduction Amount</th>
+            <th>Net Pay</th>
+        </tr>
+    <tbody id="payrollBody">
+    </tbody>
+</table>
+
+<script>
+    let employeeCount = 0;
+
+    function addEmployee() {
+        // Get input values
+        const name = document.getElementById('employeeName').value;
+        const days = parseFloat(document.getElementById('daysWorked').value);
+        const rate = parseFloat(document.getElementById('dailyRate').value);
+        const deduction = parseFloat(document.getElementById('deduction').value);
+
+        // Validate inputs
+        if (!name || isNaN(days) || isNaN(rate) || isNaN(deduction)) {
+            alert('Please fill in all fields with valid values');
+            return;
+        }
+
+        // Calculate pay
+        const grossPay = days * rate;
+        const netPay = grossPay - deduction;
+
+        // Create new row
+        const tbody = document.getElementById('payrollBody');
+        const row = tbody.insertRow();
+        employeeCount++;
+
+        // Add cells
+        row.insertCell(0).textContent = employeeCount;
+        row.insertCell(1).textContent = name;
+        row.insertCell(2).textContent = days;
+        row.insertCell(3).textContent = rate.toFixed(2);
+        row.insertCell(4).textContent = grossPay.toFixed(2);
+        row.insertCell(5).textContent = deduction.toFixed(2);
+        row.insertCell(6).textContent = netPay.toFixed(2);
+
+        // Clear inputs
+        document.getElementById('employeeName').value = '';
+        document.getElementById('daysWorked').value = '';
+        document.getElementById('dailyRate').value = '';
+        document.getElementById('deduction').value = '';
+    }
+</script>
+       
+    <footer>
+    © 2024, Jama Paolo H. Sariol
+    </footer>
 </body>
 </html>
