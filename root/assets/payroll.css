@@ -1,0 +1,137 @@
+body{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/root/assets/images/711093.jpg");
+    font-family: JetBrains Mono;
+    background-size: cover;
+    text-align: center;
+}
+.mainbody {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    flex: 1 0 auto; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.mainbody h1{
+    text-align: center;
+    font-family: JetBrains Mono;
+    font-weight: bolder;
+    flex: 1 0 auto; 
+    padding: 10px;
+    padding-bottom: 11px;
+}
+input{
+    width: 100px;
+    margin: 5px;
+    transition: 0.1s;
+    font-family: JetBrains Mono;
+    text-align: center;
+    padding: 8px;
+    width: 101%;
+}
+input:focus{
+    text-decoration: none;
+    outline-style: none;
+    outline: none;
+    color: white;
+    background-color: black;
+    border-color: black;
+}
+.tableInput{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 2px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    text-align: center;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1px;
+    overflow: hidden;
+}
+th{
+    font-family: JetBrains Mono;
+    flex: 1 0 auto;
+    padding: 10px;
+    padding-bottom: 11px;
+    word-spacing: evenly;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+}
+.assOne{
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 2px;
+    transition: 0.1s;
+}
+.accent{
+    font-weight: bold;  
+}
+.addEmp{
+    font-family: JetBrains Mono;
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 2px;
+    transition: 0.1s;
+}
+.addEmp:hover{
+    background-color: black;
+    color: white;
+    transform: scale(1.03)
+}
+.home{
+    justify-content: center;
+    align-items: center;
+    font-family:  JetBrains Mono;
+    background-color: white;
+    border-color: black;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 10dvh;
+    transition: 0.3s;
+    padding: 10px;
+}
+.home:hover{
+    color: white;
+    background-color: black;
+    transform:scale(1.03);
+    border-radius: 2px;
+}
+footer{
+    width: 100%;
+    max-width: 900px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0;
+    font-family: JetBrains Mono;
+    color:gray;
+}
