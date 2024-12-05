@@ -119,6 +119,8 @@ th{
     margin-top: 10dvh;
     transition: 0.3s;
     padding: 10px;
+    text-decoration: none;
+    color: black;
 }
 .home:hover{
     color: white;
